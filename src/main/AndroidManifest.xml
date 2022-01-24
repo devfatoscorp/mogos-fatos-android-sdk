@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    package = "biz.fatossdk"
+    android:versionCode = "23"
+    android:versionName = "1.0.23">
+
+    <!--<permission-->
+    <!--android:name="biz.fatossdk.anavi.permission.MAPS_RECEIVE"-->
+    <!--android:protectionLevel="signature" />-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name = "android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name = "android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name = "android.permission.WAKE_LOCK" />
+    <!-- Copied from Google Maps Library/AndroidManifest.xml. -->
+    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name = "android.permission.INTERNET" />
+    <uses-permission android:name = "com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <!-- External storage for caching. -->
+    <uses-permission android:name = "android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name = "android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- My Location -->
+    <uses-permission android:name = "android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name = "android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+    <uses-permission android:name = "android.permission.GET_TASKS" />
+    <uses-permission android:name = "android.permission.REORDER_TASKS" />
+    <uses-permission android:name = "android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name = "android.permission.UPDATE_DEVICE_STATS "></uses-permission>
+    <uses-permission android:name = "android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <uses-permission android:name = "android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+
+    <!-- <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> -->
+    <!-- Maps API needs OpenGL ES 2.0. -->
+    <uses-feature
+        android:glEsVersion = "0x00020000"
+        android:required = "true" />
+    <uses-feature
+        android:name = "android.software.leanback"
+        android:required = "false" />
+
+    <!-- End of copy. -->
+    <!--android:label="@string/app_name"-->
+    <!--android:name="biz.fatossdk.newanavi.ANaviApplication"-->
+    <application
+        android:configChanges = "keyboardHidden|orientation|screenSize|locale"
+        android:largeHeap = "true"
+        android:launchMode = "singleTask"
+        android:requestLegacyExternalStorage="true"
+        tools:replace = "android:largeHeap, android:configChanges">
+        <!--android:icon="@drawable/ic_launcher"-->
+        <!--android:theme="@style/Theme.Slidr"-->
+
+        <!--  android:theme="@style/AppTheme" -->
+
+        <meta-data
+            android:name = "com.google.android.maps.v2.API_KEY"
+            android:value = "AIzaSyAAGJf_TgfO62izCE8KmPVl_KHZZb6Ltl0" />
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.AMapMainActivity"
+            android:configChanges = "keyboard|orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask">
+            <!--<intent-filter>-->
+            <!--<action android:name="biz.fatos.newanavi.AMapMainActivity" />-->
+            <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+
+        </activity>
+
+        <activity
+            android:name = "biz.fatossdk.kotlin.FatosActivity"
+            android:configChanges = "keyboardHidden|orientation|screenSize"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask" >
+        </activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_new.AMapPoiSearchActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.splash.FatosSplashActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:windowSoftInputMode = "stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name = "biz.fatos.newanavi.splash.FatosSplashActivity" />
+                <category android:name = "android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name = "android.intent.action.SEND" />
+                <category android:name = "android.intent.category.DEFAULT" />
+                <data android:mimeType = "image/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name = "android.intent.action.SEND" />
+                <category android:name = "android.intent.category.DEFAULT" />
+                <data android:mimeType = "text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name = "android.intent.action.SEND_MULTIPLE" />
+                <category android:name = "android.intent.category.DEFAULT" />
+                <data android:mimeType = "image/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.splash.AMapSplashActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.splash.AMapAgreeActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.mainmenu.AMapListActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_new.AMapFavoritesActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_new.AMapPoiSearchResultActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapSettingActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapClauseActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapCopyrightActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapVersionInfoActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapLanguageSelectActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapLabTestActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapCarInfoPopupActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.setting.AMapRouteLineSelectorActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.evsearch.AMapEVPickerInfoActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_new.AMapRecentActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_old.AMapQuickSearchActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_new.AMapNewQuickSearchActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.evsearch.AMapEVSearchActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.summary.AMapRouteSummaryActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.summary.AMapRouteSummaryforEVActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.summary.AMapRouteSummaryforEVPopupActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.tripreport.AMapTripInfoActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"></activity>
+
+        <activity
+            android:name = "biz.fatossdk.newanavi.tripreport.AMapTripHistoryActivity"
+            android:configChanges = "orientation|keyboardHidden"
+            android:label = "@string/app_name"
+            android:launchMode = "singleTask"
+            android:windowSoftInputMode = "stateHidden|adjustPan"></activity>
+        <activity
+            android:name = "biz.fatossdk.newanavi.quicksearch_new.AMapPoiPositionActivity"
+            android:configChanges = "orientation|keyboardHidden|screenSize|locale"
+            android:label = "@string/app_name"
+            android:windowSoftInputMode = "stateHidden"></activity>
+
+        <service
+            android:name = "biz.fatossdk.service.GPSService"
+            android:enabled = "true"></service>
+        <service
+            android:name = "biz.fatossdk.service.SerialService"
+            android:enabled = "true"></service>
+        <service
+            android:name = "biz.fatossdk.notification.FTNotificationMessageService"
+            android:label = "@string/app_name"
+            android:permission = "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name = "android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
