@@ -80,7 +80,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.devfatoscorp'
                 artifactId = 'devfatoscorp'
-                version = '0.1'
+                version = '0.2'
             }
         }
     }
